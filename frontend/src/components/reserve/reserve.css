@@ -1,0 +1,72 @@
+.reserve{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.418);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.rContainer{
+    background-color: white;
+    padding: 20px;
+    position: relative;
+}
+
+.rClose{
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.rItem{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 20px;
+}
+
+.rInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.rTitle{
+    font-weight: 500;
+}
+
+.rDesc{
+    font-weight: 200;
+}
+.rMax{
+    font-size: 12;
+}
+.rPrice{
+    font-weight: 500;
+}
+
+.rSelection{
+    font-size: 7px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.room{
+    display: flex;
+    flex-direction: column;
+}
+
+.rButton{
+    border-radius: 5px;
+    background-color: #1a2029;
+    color: white;
+    width: 100%;
+    padding: 10px;
+}
