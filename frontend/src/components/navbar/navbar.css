@@ -30,3 +30,10 @@
   width: 8em;
   filter: invert(1);
 }
+
+.navItems1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
