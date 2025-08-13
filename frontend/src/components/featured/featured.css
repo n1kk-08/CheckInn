@@ -13,7 +13,8 @@
   border-radius: 10px;
   overflow: hidden;
   height: 250px;
-  flex:1
+  flex:1;
+  box-shadow: 2px 2px 4px rgb(202, 202, 202);
 }
 
 .featuredImg{
