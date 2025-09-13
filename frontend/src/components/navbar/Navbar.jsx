@@ -16,9 +16,14 @@ const Navbar = () => {
     navigate("/Login");
   }
 
+  const handleRegister = () => {
+    navigate("/Register");
+  }
+
   const {user} = useContext(AuthContext)
   return (
     <div className="navbar">
+
       <div className="navContainer">
 
         <Link to="/"><img src="/Logo.png" className="logo-img" alt="CheckInn"/></Link>
@@ -27,7 +32,7 @@ const Navbar = () => {
           <div className="username">{user.username}</div>
           <button className="logout-btn" onClick={handleLogout}>Logout</button>
         </div> : <div className="navItems">
-          <button className="navButton">Register</button>
+          <button className="navButton" onClick={handleRegister}>Register</button>
           <button className="navButton" onClick={handleLogin}>Login</button>
         </div>}
       </div>

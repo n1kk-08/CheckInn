@@ -1,36 +1,71 @@
+/* login.css */
 
-
-  .login{
-    display: flex;
-    padding-top: 50px;
-    justify-content: center;
-
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 60px); /* assuming navbar is ~60px */
+  background-color: #ffffff; /* white background */
 }
 
-  .login-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    width: 300px;
-    margin: 0 auto; 
-    border: 1px solid black;
-    padding: 10px;
-  }
-  
-  .login-input,
-  .login-password,
-  .login-btn {
-    width: 100%; 
-    padding: 10px;
-    font-size: 16px;
-    box-sizing: border-box;
-  }
-  
-  .login-btn {
-    background-color: #394345;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
+.login-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 300px;
+  padding: 30px;
+  border: 1px solid #e5e7eb; /* light border */
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.login-input,
+.login-password {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  outline: none;
+}
+
+.login-input:focus,
+.login-password:focus {
+  border-color: #1a2029;
+}
+
+.login-btn {
+  background-color: #1a2029;
+  color: #fff;
+  padding: 10px;
+  font-size: 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.login-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.login-btn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+span {
+  font-size: 13px;
+  color: red;
+  margin-top: 5px;
+}
+
+.input-label{
+  font-family: sans-serif;
+  font-weight: 550;
+}
+
+.sign-up-link{
+  text-decoration: none;
+  color: #073f94;
+}
