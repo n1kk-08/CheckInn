@@ -3,7 +3,7 @@ import "./featuredProperties.css";
 
 const FeaturedProperties = () => {
 
-  const { data, error, loading } = useFetch("/hotels?featured=true&limit=4")
+  const { data, loading } = useFetch("/hotels?featured=true&limit=4")
 
   return (
     <div className="fp">
@@ -21,7 +21,7 @@ const FeaturedProperties = () => {
             <div className="fpRating">
 
               {item.rating ? (<><button>{item.rating}</button>
-                <span>Excellent</span></>) : ""}
+                </>) : ""}
             </div>
           </div>))
 

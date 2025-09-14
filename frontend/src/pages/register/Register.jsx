@@ -5,12 +5,13 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom"
 import Navbar from "../../components/navbar/Navbar";
 import { Link } from "react-router-dom";
+import Toast from "../../components/toast/Toast";
 
 
 const Register = () => {
     const [credentials, setCredentials] = useState({
         username: "",
-        email:"",
+        email: "",
         country: "",
         city: "",
         phone: "",
@@ -20,10 +21,11 @@ const Register = () => {
     const { loading, error, dispatch } = useContext(AuthContext);
 
     const [registerError, setRegisterError] = useState(null);
+    const [toastMessage, setToastMessage] = useState("");
 
     const handleChange = (e) => {
         setCredentials(prev => ({ ...prev, [e.target.id]: e.target.value }))
-        setRegisterError(null); // clear error once user starts typing
+        setRegisterError(null);
     }
 
     const navigate = useNavigate()
@@ -31,27 +33,30 @@ const Register = () => {
     const handleClick = async (e) => {
         e.preventDefault();
 
-        // ✅ Check empty fields
+
         if (!credentials.username || !credentials.password) {
             setRegisterError("Please fill all the details first to continue");
             return;
         }
 
-        dispatch({ type: "LOGIN_START" })
         try {
             const res = await axios.post("/auth/register", credentials)
             dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details })
-            navigate("/")
+            setToastMessage("Login Now");
+            navigate("/Login");
         } catch (error) {
-            dispatch({ type: "LOGIN_FAILURE", payload: error.response?.data })
+            // dispatch({ type: "LOGIN_FAILURE", payload: error.response?.data })
+            console.error(error.response?.data)
         }
     }
 
+    <Toast message={toastMessage} onClose={() => setToastMessage("")} />
+
 
     return (
-        <div>
+        <div className="container">
             <Navbar />
-            <div className="login">
+            <div className="register">
                 <div className="login-container">
                     <h2>Sign Up to continue..</h2>
                     <label htmlFor="username" className="input-label">Username</label>
@@ -64,7 +69,7 @@ const Register = () => {
                         onChange={handleChange}
                     />
 
-<label htmlFor="email" className="input-label">Email</label>
+                    <label htmlFor="email" className="input-label">Email</label>
                     <input
                         type="email"
                         className="login-input"
@@ -114,11 +119,12 @@ const Register = () => {
                         className="login-btn"
                         onClick={handleClick}
                     >
-                        Login
+                        Register
                     </button>
                     {registerError && <span>{registerError}</span>}
                     {error && <span>{error.message}</span>}
-                <p>Already a User ? <Link to={"/login"} className="sign-up-link">Sign In</Link></p>
+                    
+                    <p>Already a User ? <Link to={"/login"} className="sign-up-link">Log In</Link></p>
                 </div>
 
             </div>

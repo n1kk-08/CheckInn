@@ -51,7 +51,7 @@ const Login = () => {
             <div className="login">
                 <div className="login-container">
                     <h2>Login to continue..</h2>
-                    <label htmlFor="username" className="input-label">Username</label>
+                    <label htmlFor="/" className="input-label">Username</label>
                     <input
                         type="text"
                         className="login-input"
@@ -60,7 +60,7 @@ const Login = () => {
                         value={credentials.username}
                         onChange={handleChange}
                     />
-                    <label htmlFor="password" className="input-label">Password</label>
+                    <label htmlFor="/" className="input-label">Password</label>
                     <input
                         type="password"
                         className="login-password"
@@ -76,9 +76,9 @@ const Login = () => {
                     >
                         Login
                     </button>
-                    {loginError && <span>{loginError}</span>}
-                    {error && <span>{error.message}</span>}
-                <p>New User ? <Link to={"/register"} className="sign-up-link">Sign Up</Link></p>
+                    {loginError && <span className="error-message">{loginError}</span>}
+                    {error && <span className="error-message">{error.message}</span>}
+                    <p>New User ? <Link to={"/register"} className="sign-up-link">Register</Link></p>
                 </div>
 
             </div>
